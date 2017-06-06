@@ -5,9 +5,7 @@ import xml.etree.ElementTree as ET
 def loadRSS():
  
     url = 'http://www.hindustantimes.com/rss/topnews/rssfeed.xml'
- 
     resp = requests.get(url)
- 
     with open('topnewsfeed.xml', 'wb') as f:
         f.write(resp.content)
          
@@ -15,11 +13,8 @@ def loadRSS():
 def parseXML(xmlfile):
  
     tree = ET.parse(xmlfile)
- 
     root = tree.getroot()
- 
     newsitems = []
- 
     for item in root.findall('./channel/item'):
  
         news = {}
